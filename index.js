@@ -1,5 +1,5 @@
 $(function(){
-
+	animateDiv();
 	// console.log('dom is ready');	
 	var counters = 0;
 	//created an array for people and set boolean to them if they are good or bad
@@ -21,14 +21,14 @@ $(function(){
 
 	  	var newPerson = people[x]
 
-	  	$('#random').removeClass("bad")
+	  	$('.random').removeClass("bad")
 
-		$('#random').attr('src', newPerson.src)
+		$('.random').attr('src', newPerson.src)
 
 		if (newPerson.isBad) {
-			$('#random').addClass("bad")
+			$('.random').addClass("bad")
 		}
-		}
+		}	
 
 		function playMusic (){
 		var isPlaying = false;
@@ -63,7 +63,7 @@ $(function(){
 		sound.setAttribute('src', 'gunshot.mp3');
 		$.get();
 
-		$('#random').click(function(){
+		$('.random').click(function(){
 		sound.play();
 		isPlay = true;
 	});
@@ -73,7 +73,7 @@ $(function(){
 
     // if we have, increment the score or else decrement if friendly
     function addCounter(){
-		$('#random').click(function () {
+		$('.random').click(function () {
 		var person = $(this)
 		console.log(person.attr("src"))
 		console.log(person.hasClass("bad"))
@@ -91,5 +91,30 @@ $(function(){
 	})
 }
 		addCounter();
+
+function makeNewPosition(){
+    
+    // Get viewport dimensions (remove the dimension of the div)
+    var h = $('#board').height() + 10;
+    var w = $('#board').width() + 10;
+    
+    var nh = Math.floor(Math.random() * h);
+    var nw = Math.floor(Math.random() * w);
+    
+    return [nh,nw];    
+    
+}
+
+function animateDiv(){
+    $('.random').each(function() {
+       var newq = makeNewPosition();
+
+      $(this).animate({ top: newq[0]+110, left: newq[1] },3000, function(){
+        animateDiv();    
+        // changeImage();    
+      });
+    })
+}
+
 
 });
