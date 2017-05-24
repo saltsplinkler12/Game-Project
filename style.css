@@ -23,6 +23,7 @@ body{
   background-image: url(back2.gif);
   background-repeat: no-repeat;
   background-size: 100%;
+
 }
 #board{
   clear:both;
@@ -30,7 +31,7 @@ body{
   margin: 10px;
   height: 500px;
   width: 900px;
-  border:solid;
+ 
 }  
 .random{
   border-radius: 50%;

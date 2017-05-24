@@ -15,18 +15,18 @@ $(function(){
 	}];
 	
 	
-	function  changeImage () {
+	function  changeImage (id) {
 	    var size = people.length
 	  	var x = Math.floor(size * Math.random())
 
 	  	var newPerson = people[x]
 
-	  	$('.random').removeClass("bad")
+	  	$(id).removeClass("bad")
 
-		$('.random').attr('src', newPerson.src)
+		$(id).attr('src', newPerson.src)
 
 		if (newPerson.isBad) {
-			$('.random').addClass("bad")
+			$(id).addClass("bad")
 		}
 		}	
 
@@ -46,14 +46,26 @@ $(function(){
 	}	
 	playMusic();
 
-	// to prevent friendly images from being shot
-	$(".friendly").click(function (event){
-  		changeImage();
-	});
-	
-	// calling changeImage  function on start button 
+	function startGame(){
+
+	  	for(var i = 0; i < 4; i++) {
+	  		var size = people.length
+	  		var x = Math.floor(size * Math.random());
+	  		var newPerson = people[x]
+
+	  		$('#randoms' + i).attr('src', newPerson.src);
+	  		if (newPerson.isBad) {
+			$('#randoms' + i).addClass("bad")
+			}
+	  	}
+
+
+
+
+
+	}
     $(".start").click(function (event){
-  		changeImage();
+    	startGame();	
 	});
 
     function gunMusic (){
@@ -68,6 +80,11 @@ $(function(){
 		isPlay = true;
 	});
 
+		$('.random').click(function(){
+		sound.play();
+		isPlay = true;
+	});
+	
 	}
 		gunMusic();
 
@@ -87,7 +104,9 @@ $(function(){
 			counters--;
 			$('.score-count').html(counters);
 		}
-		changeImage();
+
+		var id = '#' + $(this).attr('id');
+		changeImage(id);
 	})
 }
 		addCounter();
@@ -110,8 +129,7 @@ function animateDiv(){
        var newq = makeNewPosition();
 
       $(this).animate({ top: newq[0]+110, left: newq[1] },3000, function(){
-        animateDiv();    
-        // changeImage();    
+        animateDiv();        
       });
     })
 }
