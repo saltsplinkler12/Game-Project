@@ -1,67 +1,76 @@
 $(function(){
 	animateDiv();
-	// console.log('dom is ready');	
+
 	var counters = 0;
 	//created an array for people and set boolean to them if they are good or bad
 	var people = [{
 		src: "batman.jpg",
-		isBad: true
+		isBad: false
+	},{
+		src: "spider.jpg",
+		isBad: false
 	},{
 		src: "captainAm.jpg",
 		isBad: false
 	},{
 		src: "flash.jpg",
+		isBad: false
+	},{
+		src: "super-man-logo.jpg",
+		isBad: false
+	},{
+		src: "bane.jpg",
 		isBad: true
+	},
+	{
+		src: "captain.cold.jpg",
+		isBad: true
+	},{
+		src: "redskull.jpg",
+		isBad: true
+	},{
+		src: "lexluther.jpg",
+		isBad: true
+
+
 	}];
-	
-	
-	function  changeImage (id) {
-	    var size = people.length
-	  	var x = Math.floor(size * Math.random())
 
-	  	var newPerson = people[x]
-
-	  	$(id).removeClass("bad")
-
-		$(id).attr('src', newPerson.src)
-
-		if (newPerson.isBad) {
-			$(id).addClass("bad")
-		}
-		}	
-
-		function playMusic (){
-		var isPlaying = false;
-		var song = document.createElement('audio');
+function  changeImage (id) {
+	var size = people.length
+	var x = Math.floor(size * Math.random())
+	var newPerson = people[x]
 		
-		song.setAttribute('src', 'kano.mp3');
-		$.get();
-
-		$('.button').click(function(){
+		$(id).removeClass("bad")
+		$(id).attr('src', newPerson.src)
+	if (newPerson.isBad) {
+		$(id).addClass("bad")
+}
+		}	
+function playMusic (){
+	var isPlaying = false;
+	var song = document.createElement('audio');
+	song.setAttribute('src', 'kano.mp3');
+	$.get();
+	
+	$('.button').click(function(){
 		song.play();
 		isPlaying = true;
-	
 	});
 	
-	}	
-	playMusic();
+}	
+playMusic();
 
-	function startGame(){
-
-	  	for(var i = 0; i < 4; i++) {
-	  		var size = people.length
-	  		var x = Math.floor(size * Math.random());
-	  		var newPerson = people[x]
-
-	  		$('#randoms' + i).attr('src', newPerson.src);
-	  		if (newPerson.isBad) {
+function startGame(){
+	for(var i = 0; i < 9; i++) {
+		var size = people.length
+		var x = Math.floor(size * Math.random());
+		var newPerson = people[x]
+	$('#randoms' + i).attr('src', newPerson.src);
+	
+	if (newPerson.isBad) {
 			$('#randoms' + i).addClass("bad")
-			}
-	  	}
-
-
-
-
+		}
+	}
 
 	}
     $(".start").click(function (event){
@@ -112,18 +121,15 @@ $(function(){
 		addCounter();
 
 function makeNewPosition(){
-    
-    // Get viewport dimensions (remove the dimension of the div)
-    var h = $('#board').height() + 10;
-    var w = $('#board').width() + 10;
-    
-    var nh = Math.floor(Math.random() * h);
-    var nw = Math.floor(Math.random() * w);
-    
-    return [nh,nw];    
-    
-}
+    	// Get viewport dimensions (remove the dimension of the div)
+    	var h = $('#board').height() + 10;
+    	var w = $('#board').width() + 10;
 
+    	var nh = Math.floor(Math.random() * h);
+   	 	var nw = Math.floor(Math.random() * w);
+    
+    	return [nh,nw];    
+	}
 function animateDiv(){
     $('.random').each(function() {
        var newq = makeNewPosition();
