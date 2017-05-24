@@ -4,15 +4,16 @@ $(function(){
 	var counters = 0;
 	//created an array for people and set boolean to them if they are good or bad
 	var people = [{
-		src: "trump.jpg",
+		src: "batman.jpg",
 		isBad: true
 	},{
-		src: "barack.jpg",
+		src: "captainAm.jpg",
 		isBad: false
 	},{
-		src: "Katie.jpg",
+		src: "flash.jpg",
 		isBad: true
 	}];
+	
 	
 	function  changeImage () {
 	    var size = people.length
@@ -29,7 +30,7 @@ $(function(){
 		}
 		}
 
-	function playMusic (){
+		function playMusic (){
 		var isPlaying = false;
 		var song = document.createElement('audio');
 		
