@@ -84,11 +84,18 @@ function startGame(){
 function hideElements(){
     
     $(".start").click(function(){
-        $(".start",).hide();
+        $(".start").hide();
     });
   	
   	$(".start").click(function(){
-        $("#side",).hide();
+        $("#side").hide();
+    });
+
+    $(".start").click(function(){
+        $(".again").hide();
+    });
+    $(".start").click(function(){
+       $('#messages').hide();
     });
 }
 hideElements();
@@ -125,9 +132,10 @@ function addCounter(){
 			counters++;
 			$('.score-count').html(counters);
 		}
-		// else if('.score-count' === 10){
-		// 	console.log("you win");
-		// }
+		else if(counters => 5){
+			$('#messages').html("shutup");
+			$('#messages').show();
+		}
 		else{
 			counters--;
 			$('.score-count').html(counters);
@@ -148,6 +156,7 @@ function makeNewPosition(){
     
     return [nh,nw];    
 }
+
 function animateDiv(){
     
     $('.random').each(function() {
@@ -159,23 +168,21 @@ function animateDiv(){
     })
 }
 
-
-
 function decTime(){
-
-	
 	counter = counter -1;
-	
 	$('#counter').html(counter);
 	
 	if(counter <= 0){
 		clearInterval(timer);
 		$('#counter').html("OUT OF TIME!!");
+		
+		$(".again").show();
+		
 		return;
-	}
 
+	}
 }
-// decTime();
+
 
 
 
