@@ -42,10 +42,11 @@ function  changeImage (id) {
 		
 		$(id).removeClass("bad")
 		$(id).attr('src', newPerson.src)
+	
 	if (newPerson.isBad) {
 		$(id).addClass("bad")
-}
-		}	
+	}
+}	
 function playMusic (){
 	var isPlaying = false;
 	var song = document.createElement('audio');
@@ -65,17 +66,21 @@ function startGame(){
 		var size = people.length
 		var x = Math.floor(size * Math.random());
 		var newPerson = people[x]
-	$('#randoms' + i).attr('src', newPerson.src);
 	
-	if (newPerson.isBad) {
+		$('#randoms' + i).attr('src', newPerson.src);
+	
+	if (newPerson.isBad){
 			$('#randoms' + i).addClass("bad")
 		}
-	}
+}
 
 	}
     $(".start").click(function (event){
+    	counter = 21;	
+		timer = setInterval(decTime,1000);
     	startGame();	
 	});
+
 function hideElements(){
     
     $(".start").click(function(){
@@ -87,6 +92,7 @@ function hideElements(){
     });
 }
 hideElements();
+
 function gunMusic (){
 	var isPlay = false;
 	var sound = document.createElement('audio');
@@ -152,6 +158,26 @@ function animateDiv(){
       });
     })
 }
+
+
+
+function decTime(){
+
+	
+	counter = counter -1;
+	
+	$('#counter').html(counter);
+	
+	if(counter <= 0){
+		clearInterval(timer);
+		$('#counter').html("OUT OF TIME!!");
+		return;
+	}
+
+}
+// decTime();
+
+
 
 
 });
