@@ -1,6 +1,6 @@
 $(function(){
 	animateDiv();
-
+	$("#win").hide();
 	var counters = 0;
 	//created an array for people and set boolean to them if they are good or bad
 	var people = [{
@@ -35,31 +35,31 @@ $(function(){
 
 	}];
 
-function  changeImage (id) {
-	var size = people.length
-	var x = Math.floor(size * Math.random())
-	var newPerson = people[x]
+	function  changeImage (id) {
+		var size = people.length
+		var x = Math.floor(size * Math.random())
+		var newPerson = people[x]
+			
+			$(id).removeClass("bad")
+			$(id).attr('src', newPerson.src)
 		
-		$(id).removeClass("bad")
-		$(id).attr('src', newPerson.src)
-	
-	if (newPerson.isBad) {
-		$(id).addClass("bad")
-	}
-}	
-function playMusic (){
-	var isPlaying = false;
-	var song = document.createElement('audio');
-	song.setAttribute('src', 'kano.mp3');
-	$.get();
-	
-	$('.button').click(function(){
-		song.play();
-		isPlaying = true;
-	});
-	
-}	
-playMusic();
+		if (newPerson.isBad) {
+			$(id).addClass("bad")
+		}
+	}	
+	function playMusic (){
+		var isPlaying = false;
+		var song = document.createElement('audio');
+		song.setAttribute('src', 'kano.mp3');
+		$.get();
+		
+		$('.button').click(function(){
+			song.play();
+			isPlaying = true;
+		});
+		
+	}	
+	playMusic();
 
 function startGame(){
 	for(var i = 0; i < 9; i++) {
@@ -94,9 +94,7 @@ function hideElements(){
     $(".start").click(function(){
         $(".again").hide();
     });
-    $(".start").click(function(){
-       $('#messages').hide();
-    });
+  
 }
 hideElements();
 
@@ -105,12 +103,6 @@ function gunMusic (){
 	var sound = document.createElement('audio');
 		
 	sound.setAttribute('src', 'gunshot.mp3');
-	$.get();
-
-	$('.random').click(function(){
-		sound.play();
-		isPlay = true;
-	});
 
 	$('.random').click(function(){
 		sound.play();
@@ -126,15 +118,10 @@ function addCounter(){
 		var person = $(this)
 		// console.log(person.attr("src"))
 		// console.log(person.hasClass("bad"))
-
 		// check to see if we've shot a bad person
 		if(person.hasClass ('bad')){	
 			counters++;
 			$('.score-count').html(counters);
-		}
-		else if(counters => 5){
-			$('#messages').html("shutup");
-			$('#messages').show();
 		}
 		else{
 			counters--;
@@ -142,7 +129,16 @@ function addCounter(){
 		}
 		var id = '#' + $(this).attr('id');
 		changeImage(id);
+
+			if(counters === 5) {
+			$('.random').hide();
+			$("#win").show();
+			$(".again").show();
+			$("#counter").hide();
+
+	}
 	})
+	
 }
 	addCounter();
 
@@ -177,12 +173,17 @@ function decTime(){
 		$('#counter').html("OUT OF TIME!!");
 		
 		$(".again").show();
+
+		if(counter === 0) {
+		$('.random').hide();
+	}
 		
 		return;
 
 	}
 }
 
+ 
 
 
 
