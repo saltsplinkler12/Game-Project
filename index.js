@@ -171,8 +171,7 @@ $(function(){
 		if(counter <= 0){
 			clearInterval(timer);
 			$("#loose").show();
-			// $(".again").show();
-
+	
 			if(counter === 0) {
 			$('.random').hide();
 			$(".again").show();
