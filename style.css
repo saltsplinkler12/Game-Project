@@ -110,32 +110,3 @@ span{
   size:50px;
 }
 
-
-/**{margin:0px;padding:0px}
-#header
-{
-  padding:20px;
-  overflow:auto;
-}
-#main
-{
-  padding:10px;
-}
-#footer
-{
-  padding:20px;
-  clear:both
-}
-#side
-{
-  min-height:250px;margin-bottom:20px;overflow:auto
-}
-
-@media only screen and (min-width: 1140px) {
-
-#main
-{
-padding:20px 40px 20px 40px;
-}
-
-}*/
