@@ -1,6 +1,9 @@
 $(function(){
 	animateDiv();
 	$("#win").hide();
+	$("#loose").hide();
+	
+
 	var counters = 0;
 	//created an array for people and set boolean to them if they are good or bad
 	var people = [{
@@ -116,9 +119,7 @@ $(function(){
 	function addCounter(){
 		$('.random').click(function () {
 			var person = $(this)
-			// console.log(person.attr("src"))
-			// console.log(person.hasClass("bad"))
-			// check to see if we've shot a bad person
+
 			if(person.hasClass ('bad')){	
 				counters++;
 				$('.score-count').html(counters);
@@ -169,12 +170,13 @@ $(function(){
 		
 		if(counter <= 0){
 			clearInterval(timer);
-			$('#counter').html("OUT OF TIME!!");
-			
-			$(".again").show();
+			$("#loose").show();
+			// $(".again").show();
 
 			if(counter === 0) {
 			$('.random').hide();
+			$(".again").show();
+			
 		}
 			
 			return;
