@@ -3,9 +3,8 @@ $(function(){
 	$("#win").hide();
 	$("#loose").hide();
 	
-
 	var counters = 0;
-	//created an array for people and set boolean to them if they are good or bad
+	//created an array for marvels and bad guys and set boolean to them if they are good (false) or bad (true)
 	var people = [{
 		src: "batman.jpg",
 		isBad: false
@@ -37,7 +36,8 @@ $(function(){
 
 
 	}];
-
+//function used to create random images using Math.floor and Math.random function.
+//variable newPerson ise used to asign people 
 	function  changeImage (id) {
 		var size = people.length
 		var x = Math.floor(size * Math.random())
@@ -97,9 +97,8 @@ $(function(){
 		    $(".start").click(function(){
 		        $(".again").hide();
 		    });
-		  
 		}
-		hideElements();
+		 hideElements();
 
 	function gunMusic (){
 		var isPlay = false;
@@ -130,21 +129,19 @@ $(function(){
 			}
 			var id = '#' + $(this).attr('id');
 			changeImage(id);
-
-				if(counters === 5) {
+			
+			if(counters === 5){
 				$('.random').hide();
 				$("#win").show();
 				$(".again").show();
 				$("#counter").hide();
-
-		}
+			}
 		})
-		
 	}
 	addCounter();
 
 	function makeNewPosition(){
-	    	// Get viewport dimensions (remove the dimension of the div)
+	   // 
 	    var h = $('#board').height() + 10;
 	    var w = $('#board').width() + 10;
 
@@ -173,19 +170,13 @@ $(function(){
 			$("#loose").show();
 	
 			if(counter === 0) {
-			$('.random').hide();
-			$(".again").show();
-			
+				$('.random').hide();
+				$(".again").show();
 		}
-			
 			return;
 
 		}
 	}
-
- 
-
-
 
 
 });
