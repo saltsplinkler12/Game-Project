@@ -10,3 +10,16 @@ A fun single-player game which will displays animated Marvel logos and their log
 
 ###Instructions 
 
+• Step 1. Click on [Game Link ](https://saltsplinkler12.github.io/Game-Project/)
+
+• Step 2. Click on Start
+
+• Step 3. Shoot Marvel enemy images by right-clicking on them 
+ 
+##Game Conditions 
+
+• Do not shoot the Marvel Images as you will loose a point 
+
+• Shoot Five Marvel Enemies to win game
+
+• Shoot five within 20 seconds.
