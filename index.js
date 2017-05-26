@@ -95,8 +95,7 @@ $(function(){
 	});
 
     //hideElements is stopping the corresponding elements defined in the HTML to be shown when the start button is clicked. 
-	function hideElements(){
-		    
+	function hideElements(){ 
 		    $(".start").click(function(){
 		        $(".start").hide();
 		    });
@@ -191,6 +190,5 @@ $(function(){
 
 		}
 	}
-
 
 });

@@ -3,7 +3,10 @@
 ## Attack-hooo!
 
 #### Description:
-A single-player game which will display animated friendly or enemy targets, which the player must shoot. 
+A fun single-player game which will displays animated Marvel logos and their logos. The aim of the game is to shoot the enemy logos and gain points before the timer finishes. 
 
-##### Game objectives
-For every enemy shot the player will be rewarded 1 point. There will be some time constraints, therefore the quicker the player shoots the more points they will gain. 
+###Game Image
+![](gamescreen.png)
+
+###Instructions 
+
